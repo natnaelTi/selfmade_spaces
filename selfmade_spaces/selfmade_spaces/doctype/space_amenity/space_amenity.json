@@ -1,0 +1,77 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:amenity_name",
+ "creation": "2025-01-31 13:45:43.736368",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "amenity_name",
+  "is_billable",
+  "column_break_vmlc",
+  "company",
+  "billing_account"
+ ],
+ "fields": [
+  {
+   "fieldname": "amenity_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Amenity Name",
+   "unique": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_billable",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Billable"
+  },
+  {
+   "depends_on": "eval: is_billable;",
+   "fieldname": "billing_account",
+   "fieldtype": "Link",
+   "label": "Billing Account",
+   "link_filters": "[[\"Account\",\"root_type\",\"=\",\"Income\"]]",
+   "mandatory_depends_on": "eval: is_billable;",
+   "options": "Account"
+  },
+  {
+   "fieldname": "column_break_vmlc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval: is_billable;",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "mandatory_depends_on": "eval: is_billable;",
+   "options": "Company"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-31 13:57:48.184859",
+ "modified_by": "Administrator",
+ "module": "Selfmade Spaces",
+ "name": "Space Amenity",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
